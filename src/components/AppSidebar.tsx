@@ -8,6 +8,7 @@ import {
   History,
   LogOut,
   Sparkles,
+  TrendingUp,
 } from "lucide-react";
 import {
   Sidebar,
