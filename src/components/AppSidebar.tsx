@@ -8,6 +8,7 @@ import {
   History,
   LogOut,
   Sparkles,
+  TrendingUp,
 } from "lucide-react";
 import {
   Sidebar,
@@ -28,6 +29,7 @@ const teacherItems = [
   { title: "Panel", url: "/app", icon: LayoutDashboard },
   { title: "Biblioteca", url: "/app/library", icon: Library },
   { title: "Clases", url: "/app/classes", icon: Users },
+  { title: "Progreso alumnos", url: "/app/students", icon: TrendingUp },
 ];
 const studentItems = [
   { title: "Panel", url: "/app", icon: LayoutDashboard },

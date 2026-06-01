@@ -13,6 +13,7 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppStudentsRouteImport } from './routes/app.students'
 import { Route as AppLibraryRouteImport } from './routes/app.library'
 import { Route as AppHistoryRouteImport } from './routes/app.history'
 import { Route as AppClassesRouteImport } from './routes/app.classes'
@@ -41,6 +42,11 @@ const IndexRoute = IndexRouteImport.update({
 const AppIndexRoute = AppIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentsRoute = AppStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
   getParentRoute: () => AppRoute,
 } as any)
 const AppLibraryRoute = AppLibraryRouteImport.update({
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/app/classes': typeof AppClassesRoute
   '/app/history': typeof AppHistoryRoute
   '/app/library': typeof AppLibraryRoute
+  '/app/students': typeof AppStudentsRoute
   '/app/': typeof AppIndexRoute
   '/app/decks/$id': typeof AppDecksIdRoute
   '/app/quizzes/$id': typeof AppQuizzesIdRoute
@@ -111,6 +118,7 @@ export interface FileRoutesByTo {
   '/app/classes': typeof AppClassesRoute
   '/app/history': typeof AppHistoryRoute
   '/app/library': typeof AppLibraryRoute
+  '/app/students': typeof AppStudentsRoute
   '/app': typeof AppIndexRoute
   '/app/decks/$id': typeof AppDecksIdRoute
   '/app/quizzes/$id': typeof AppQuizzesIdRoute
@@ -127,6 +135,7 @@ export interface FileRoutesById {
   '/app/classes': typeof AppClassesRoute
   '/app/history': typeof AppHistoryRoute
   '/app/library': typeof AppLibraryRoute
+  '/app/students': typeof AppStudentsRoute
   '/app/': typeof AppIndexRoute
   '/app/decks/$id': typeof AppDecksIdRoute
   '/app/quizzes/$id': typeof AppQuizzesIdRoute
@@ -144,6 +153,7 @@ export interface FileRouteTypes {
     | '/app/classes'
     | '/app/history'
     | '/app/library'
+    | '/app/students'
     | '/app/'
     | '/app/decks/$id'
     | '/app/quizzes/$id'
@@ -158,6 +168,7 @@ export interface FileRouteTypes {
     | '/app/classes'
     | '/app/history'
     | '/app/library'
+    | '/app/students'
     | '/app'
     | '/app/decks/$id'
     | '/app/quizzes/$id'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/app/classes'
     | '/app/history'
     | '/app/library'
+    | '/app/students'
     | '/app/'
     | '/app/decks/$id'
     | '/app/quizzes/$id'
@@ -215,6 +227,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/app/'
       preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/students': {
+      id: '/app/students'
+      path: '/students'
+      fullPath: '/app/students'
+      preLoaderRoute: typeof AppStudentsRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/library': {
@@ -288,6 +307,7 @@ interface AppRouteChildren {
   AppClassesRoute: typeof AppClassesRoute
   AppHistoryRoute: typeof AppHistoryRoute
   AppLibraryRoute: typeof AppLibraryRoute
+  AppStudentsRoute: typeof AppStudentsRoute
   AppIndexRoute: typeof AppIndexRoute
   AppDecksIdRoute: typeof AppDecksIdRoute
   AppQuizzesIdRoute: typeof AppQuizzesIdRoute
@@ -301,6 +321,7 @@ const AppRouteChildren: AppRouteChildren = {
   AppClassesRoute: AppClassesRoute,
   AppHistoryRoute: AppHistoryRoute,
   AppLibraryRoute: AppLibraryRoute,
+  AppStudentsRoute: AppStudentsRoute,
   AppIndexRoute: AppIndexRoute,
   AppDecksIdRoute: AppDecksIdRoute,
   AppQuizzesIdRoute: AppQuizzesIdRoute,
