@@ -23,7 +23,7 @@ function Classes() {
 
   const classes = useQuery({
     queryKey: ["classes"],
-    queryFn: async () => (await supabase.from("classes").select("id,name,description,class_members(student_id, profiles:profiles!class_members_student_id_fkey(full_name))").order("created_at", { ascending: false })).data ?? [],
+    queryFn: async () => (await supabase.from("classes").select("id,name,description,class_members(student_id)").order("created_at", { ascending: false })).data ?? [],
   });
 
   const create = useMutation({
@@ -63,8 +63,8 @@ function Classes() {
 
       <div className="grid gap-3">
         {(classes.data ?? []).map((c) => {
-          type Member = { student_id: string; profiles: { full_name: string } | null };
-          const members = (c as { class_members?: Member[] }).class_members ?? [];
+          type Member = { student_id: string };
+          const members = ((c as unknown as { class_members?: Member[] }).class_members) ?? [];
           return (
             <Card key={c.id}>
               <CardContent className="p-5">
@@ -81,8 +81,8 @@ function Classes() {
                 {members.length > 0 && (
                   <div className="mt-3 flex flex-wrap gap-2">
                     {members.map((m) => (
-                      <span key={m.student_id} className="rounded-full bg-accent px-3 py-1 text-xs text-accent-foreground">
-                        {m.profiles?.full_name || "Alumno"}
+                      <span key={m.student_id} className="rounded-full bg-accent px-3 py-1 text-xs text-accent-foreground font-mono">
+                        {m.student_id.slice(0, 8)}…
                       </span>
                     ))}
                   </div>
