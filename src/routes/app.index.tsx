@@ -4,7 +4,24 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { BookOpen, GraduationCap, Users, TrendingUp, Plus, Sparkles } from "lucide-react";
+import { BookOpen, GraduationCap, Users, TrendingUp, Plus, Sparkles, Copy } from "lucide-react";
+import { toast } from "sonner";
+
+function StudentIdBadge({ userId }: { userId: string }) {
+  return (
+    <button
+      onClick={() => { navigator.clipboard.writeText(userId); toast.success("ID copiado"); }}
+      className="group flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 text-left transition hover:border-primary"
+      title="Comparte este ID con tu profesor para que te añada a su clase"
+    >
+      <div>
+        <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Tu ID de alumno</div>
+        <div className="font-mono text-xs">{userId.slice(0, 8)}…{userId.slice(-4)}</div>
+      </div>
+      <Copy className="h-4 w-4 text-muted-foreground group-hover:text-primary" />
+    </button>
+  );
+}
 
 export const Route = createFileRoute("/app/")({
   head: () => ({ meta: [{ title: "Panel · Estudio360" }] }),
