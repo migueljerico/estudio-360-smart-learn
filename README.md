@@ -124,5 +124,5 @@ Este ejercicio forma parte del programa de formación en **Análisis de Datos**,
 ---
 
 <p align="center">
-  <sub>Desarrollado por <a href="https://github.com/migueljerico">@migueljerico</a> · 2025</sub>
+  <sub>Desarrollado por <a href="https://github.com/migueljerico">@migueljerico</a> · 2026</sub>
 </p>
