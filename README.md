@@ -13,7 +13,7 @@
 
 ## 🔗 Acceso a la Aplicación
 
-[![Ver App en Producción](https://img.shields.io/badge/🚀%20Ver%20App%20en%20Producción-estudio--360.netlify.app-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://estudio-360-smart-learn.lovable.app/)
+[![Ver App en Producción](https://img.shields.io/badge/🚀%20Ver%20App%20en%20Producción-estudio--360.netlify.app-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://https://estudio360.netlify.app//)
 
 > ℹ️ **Variante de despliegue:** Este repositorio usa el preset **`netlify`** con SSR y Edge Functions. Existe una [variante con despliegue en Vercel](https://github.com/migueljerico/estudio-360-smart-learn-vercel) del mismo proyecto.
 
